@@ -1,16 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import DashboardComponent from '../components/dashboardComponent'
 
 export default function Home() {
+  const contenido=(
+    <h1>contenido</h1>
+  )
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Home</title>
-        <meta name="description" content="" />
+        <meta name="description" content="ss" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-    </div>
+      <DashboardComponent contenidoDasborad={contenido}/>
+    </>
   )
 }

@@ -1,4 +1,6 @@
 import '../styles/index.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
+
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
