@@ -14,11 +14,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     .contenedor-menu{
-        // width: 5%;
-        height: 100vh;
+        position: fixed;
+        min-height: 100vh;
         background-color: $colorFondoMenu;
         .menu-desktop{
-            .contenedor-icon-menu-desktop{
+            .contenedor-icon-menu{
                 height: 80px;
                 display: flex;
                 flex-direction: row;
@@ -53,33 +53,93 @@
                 }
             }
         }
-        
-    }
 
+        .menu-movil{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            position: relative;
+            .contenedor-icon-menu{
+                width: 60px;
+                height: 60px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                svg{
+                    color:#fff;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                }
+            }
+            .contenedor-items-movil{
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(17, 17, 17, 0.658);
+                position: fixed;
+                top: 0;
+                transform: translateX(-100%);
+                transition: transform .5s ease-out;
+                .items-movil{
+                    width: 50vw;
+                    height: 100vh;
+                    background-color: $colorFondoMenu;
+                    .icon-x{
+                        width: 40px;
+                        height: 40px;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                    .titulo-menu{
+                        font-size: 2.5rem;
+                        display: block;
+                        color:#fff;
+                    }
+                    ul{
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        a{
+                            // margin-left: 20px;
+                            color: #fff;
+                            text-decoration: none;
+                            svg{
+                                width: 40px;
+                                height: 40px;
+                            }
+                            span{
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .mostrar-menu-movil{
+                transform: translateX(0%);
+            }
+        }
+
+    }
     .contenido{
-        min-height: 10px;
+        min-height: 100vh;
         background-color: $colorFondoContenido;
+    }
+    .columna-oculta{
+        min-height: 100vh;
     }
 
 }
 
-// @media screen and (max-width: 1200px) {
-//     .dashboard-component{
-//         .contenedor-menu{
-//             width: 100%;
-//             background-color: grey;
-//         }
-//         .contenido{
-//             width: 100%;
-//             background-color: purple;
-//         }
-//     }
-// }
+
+
 
 // xxl
 @media screen and (min-width: 1400px) {
     .dashboard-component{
-        .contenedor-menu{
+        .contenedor-menu,.columna-oculta{
             width: 5%;
         }
         .contenido{
@@ -90,7 +150,7 @@
 // xxl
 @media screen and (max-width: 1400px) {
     .dashboard-component{
-        .contenedor-menu{
+        .contenedor-menu,.columna-oculta{
             width: 5%;
         }
         .contenido{
@@ -101,7 +161,7 @@
 // xl
 @media screen and (max-width: 1200px) {
     .dashboard-component{
-        .contenedor-menu{
+        .contenedor-menu,.columna-oculta{
             width: 10%;
         }
         .contenido{
@@ -112,26 +172,19 @@
 // lg
 @media screen and (max-width: 992px) {
     .dashboard-component{
-        .contenedor-menu{
-            height: 60px;
+        .contenedor-menu,.columna-oculta{
+            min-height: 60px;
             width: 100%;
         }
         .contenido{
             width: 100%;
-            min-height: 200px;
+            min-height: 10vh;
         }
     }
 }
 // md
 @media screen and (max-width: 768px) {
-    // .dashboard-component{
-    //     .contenedor-menu{
-    //         width: 100%;
-    //     }
-    //     .contenido{
-    //         width: 100%;
-    //     }
-    // }
+
 }
 // sm
 @media screen and (max-width: 576px) {
