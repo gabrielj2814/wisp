@@ -4,8 +4,8 @@ export default function DashboardComponent(props) {
     return (
         <div className="dashboard-component">
             <MenuComponent/>
-            <div className="columna-oculta"></div>
-            <section className="contenido">
+            <div id="columnaOculta" className="columna-oculta"></div>
+            <section id="contenido" className="contenido">
                 {props.contenidoDasborad}
             </section>
             

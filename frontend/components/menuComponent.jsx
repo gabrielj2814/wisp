@@ -6,14 +6,15 @@ export default function MenuComponent(){
     }
     
     function mostrarMenuDesktop(){
-        let $contenedorItemsMovil= document.getElementById("contenedorItemsMovil")
-        $contenedorItemsMovil.classList.toggle("mostrar-menu-movil")
+        // TODO: error al desplegar el menu desktop buscar solución
+        let $contenedorMenu= document.getElementById("contenedorMenu")
+        $contenedorMenu.classList.toggle("mostrar-menu-desktop")
     }
 
     return(
-        <nav className="contenedor-menu">
-            <div className="menu-desktop d-none d-lg-block">
-                <div className="contenedor-icon-menu mb-3">
+        <nav id="contenedorMenu" className="contenedor-menu">
+            <div id="menuDesktop" className="menu-desktop d-none d-lg-block">
+                <div onClick={mostrarMenuDesktop} className="contenedor-icon-menu mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </div>
                 <ul>

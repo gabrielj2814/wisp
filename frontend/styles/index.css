@@ -47,9 +47,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-.dashboard-component .contenedor-menu .menu-desktop ul li a span {
-  display: none;
-}
 .dashboard-component .contenedor-menu .menu-movil {
   display: flex;
   flex-wrap: wrap;
@@ -114,6 +111,9 @@
 }
 .dashboard-component .contenedor-menu .menu-movil .mostrar-menu-movil {
   transform: translateX(0%);
+}
+.dashboard-component .mostrar-menu-desktop {
+  width: 13% !important;
 }
 .dashboard-component .contenido {
   min-height: 100vh;
