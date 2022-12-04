@@ -36,6 +36,10 @@
                 margin: 0;
                 padding: 0;
                 list-style: none;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 li{
                     a{
                         color: #fff;
@@ -123,9 +127,9 @@
         }
     }
 
-    .mostrar-menu-desktop{
-        width: 13% !important;
-    }
+    // .mostrar-menu-desktop{
+    //     width: 13% !important;
+    // }
 
     .contenido{
         min-height: 100vh;

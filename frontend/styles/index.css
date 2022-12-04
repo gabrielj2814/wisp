@@ -36,6 +36,10 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .dashboard-component .contenedor-menu .menu-desktop ul li a {
   color: #fff;
@@ -111,9 +115,6 @@
 }
 .dashboard-component .contenedor-menu .menu-movil .mostrar-menu-movil {
   transform: translateX(0%);
-}
-.dashboard-component .mostrar-menu-desktop {
-  width: 13% !important;
 }
 .dashboard-component .contenido {
   min-height: 100vh;
