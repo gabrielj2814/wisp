@@ -12,6 +12,7 @@ export default function Home() {
         <meta name="description" content="ss" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* TODO: adtracción de campos a componentes reutilizables: texto, password, select, radio doble */}
       <DashboardComponent contenidoDasborad={contenido}/>
     </>
   )
