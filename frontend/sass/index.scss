@@ -142,6 +142,21 @@
 
 }
 
+.migas-de-pan{
+    padding-left: 15px;
+    background-color: $colorFondoMigasDePan;
+    min-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    ol{
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
 .modulo-cliente-inicio{
 
     table{

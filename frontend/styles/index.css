@@ -124,6 +124,20 @@
   min-height: 100vh;
 }
 
+.migas-de-pan {
+  padding-left: 15px;
+  background-color: #0d1117;
+  min-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+.migas-de-pan ol {
+  margin: 0;
+  padding: 0;
+}
+
 .modulo-cliente-inicio table .boton-info-direccion {
   display: block;
 }
