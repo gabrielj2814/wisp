@@ -124,6 +124,10 @@
   min-height: 100vh;
 }
 
+.modulo-cliente-inicio table .boton-info-direccion {
+  display: block;
+}
+
 @media screen and (min-width: 1400px) {
   .dashboard-component .contenedor-menu, .dashboard-component .columna-oculta {
     width: 5%;

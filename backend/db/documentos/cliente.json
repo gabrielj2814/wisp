@@ -1,0 +1,7 @@
+{
+    "cedula":"string",
+    "nombres":"string",
+    "apellidos":"string",
+    "url_foto":"string",
+    "direccion":"date"
+}
