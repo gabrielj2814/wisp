@@ -6,10 +6,10 @@ export default function BreadcrumbComponent(props){
             <ol className="breadcrumb">
                 {props.ruta.map((dataRuta,index) => {
                     if(dataRuta.ruta){
-                        return <li className="breadcrumb-item"><Link href={dataRuta.ruta}>{dataRuta.textLink}</Link></li>
+                        return <li key={index} className="breadcrumb-item"><Link href={dataRuta.ruta}>{dataRuta.textLink}</Link></li>
                     }
                     else{
-                        return <li className="breadcrumb-item active" aria-current="page">{dataRuta.textLink}</li>
+                        return <li key={index} className="breadcrumb-item active" aria-current="page">{dataRuta.textLink}</li>
                     }
                 })}
                 

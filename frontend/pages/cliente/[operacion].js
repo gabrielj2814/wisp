@@ -30,6 +30,9 @@ export default function formulario(props){
             <Link href="/cliente" className="btn btn-primary">Regresar</Link>
       </div>
       <h1 className=' text-white text-center'>Formulario Cliente</h1>
+      <div className=' container-fluid'>
+        <div className=' row'></div>
+      </div>
     </section>
   )
   return(

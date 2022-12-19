@@ -2,6 +2,9 @@
     "cedula":"string",
     "nombres":"string",
     "apellidos":"string",
+    "correo":"string",
+    "telefono_movil":"string",
+    "telefono_casa":"string",
     "url_foto":"string",
     "direccion":"date"
 }
