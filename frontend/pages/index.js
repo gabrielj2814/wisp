@@ -2,8 +2,7 @@ import Head from 'next/head'
 import DashboardComponent from '../components/dashboardComponent'
 // componenetes
 import BreadcrumbComponent from '../components/breadcrumbComponent'
-// TODO: formulario 
-// TODO: agregar una mejor presentación para mostrar los datos para la vista movil para las vistas iniciales de los modulos ()
+// TODO: agregar un component del tipo file con barra de progreso de carga
 
 export default function Home() {
     // migas de pan

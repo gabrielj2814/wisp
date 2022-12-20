@@ -8,6 +8,10 @@
   border: 1px solid aqua;
 }
 
+textarea {
+  resize: none;
+}
+
 .dashboard-component {
   display: flex;
   flex-direction: row;

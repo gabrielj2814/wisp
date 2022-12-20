@@ -1,3 +1,12 @@
+// id
+// name
+// clasesStyleLabel
+// campoObligatorio
+// labelCampo
+// clasesStyleCampo
+// placeholder
+// evento
+
 export default function CampoTextoNormalComponent(props) {
     return (
         <>

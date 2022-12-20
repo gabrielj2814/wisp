@@ -9,6 +9,11 @@
 .console-log{
     border: 1px solid aqua;
 }
+
+textarea{
+    resize: none;
+}
+
 .dashboard-component{
     display: flex;
     flex-direction: row;
@@ -127,10 +132,6 @@
         }
     }
 
-    // .mostrar-menu-desktop{
-    //     width: 13% !important;
-    // }
-
     .contenido{
         min-height: 100vh;
         background-color: $colorFondoContenido;
@@ -154,11 +155,9 @@
         margin: 0;
         padding: 0;
     }
-
 }
 
 .modulo-cliente-inicio{
-
     table{
         .boton-info-direccion{
             display: block;

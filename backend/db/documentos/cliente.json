@@ -4,7 +4,7 @@
     "apellidos":"string",
     "correo":"string",
     "telefono_movil":"string",
-    "telefono_casa":"string",
+    "telefono_fijo":"string",
     "url_foto":"string",
     "direccion":"date"
 }
