@@ -49,10 +49,10 @@ export default function Cliente(props){
                       <td>Gabriel Jesus</td>
                       <td>Valera Castillo</td>
                       <td>
-                        <bottom className="btn btn-warning">editar</bottom>
+                        <button className="btn btn-warning">editar</button>
                       </td>
                       <td>
-                        <bottom className="btn btn-danger">eliminar</bottom>
+                        <button className="btn btn-danger">eliminar</button>
                       </td>
                     </tr>
 

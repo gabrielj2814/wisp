@@ -26,6 +26,32 @@ export default function formulario(props){
     }
   ]
 
+  function cargarFoto(e){
+    let $imagen = document.querySelector(".imagen")
+    let {target} = e
+    let file = target.files[0]
+    console.log(file)
+    if(file){
+      const render = new FileReader()
+      render.addEventListener("load", (e) => {
+        let readerTarget = e.target
+        const img = document.createElement("img");
+        img.src = readerTarget.result;
+        img.classList.add("preview");
+        $imagen.textContent=""
+        $imagen.appendChild(img)
+      })
+      render.readAsDataURL(file)
+    }
+    else{
+      $imagen.textContent="Seleccionar Imagen"
+    }
+  }
+
+  function cancelarOnSubmit(e){
+    e.preventDefault()
+  }
+
   let contenido=(
     <section className='min-vh-100 modulo-cliente-formulario'>
       <BreadcrumbComponent ruta={ruta}/>
@@ -35,7 +61,7 @@ export default function formulario(props){
       <h1 className=' text-white text-center mb-2'>Formulario Cliente</h1>
       <div className='text-white text-center mb-5'>los campos con <span className='text-danger'>(*)</span> son obligatorios</div>
       <div className=' container-fluid'>
-        <form id="formularioCliente" className=' row justify-content-center'>
+        <form id="formularioCliente" onSubmit={cancelarOnSubmit} className=' row justify-content-center'>
           <div className='col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11'>
               <div className=' row justify-content-center mb-4'>
                 <div className='col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
@@ -66,18 +92,28 @@ export default function formulario(props){
               </div>
               <div className=' row justify-content-center mb-4'>                
                 <div className='col-10 col-sm-10 col-md-9 col-lg-9 col-xl-9'>
-                  <buttom className="btn btn-primary me-3">Subir Foto</buttom>
+                  <h2 className=' text-white'>Foto</h2>
+                </div>
+              </div>
+              <div className=' row justify-content-center mb-5'>  
+                <input type="file" id='campoFoto' name='campoFoto' onChange={cargarFoto} hidden/>
+                <div className='col-auto'>
+                  <label htmlFor='campoFoto' className='imagen_label'>
+                    <span  className='imagen'>Seleccionar Imagen</span>
+                  </label>
                 </div>
               </div>
               <div className=' row justify-content-center mb-4 '>                
                 <div className='col-auto'>
                   {operacion==="registrar" && 
-                    <buttom className="btn btn-primary me-3">Registra</buttom>
+                    <button className="btn btn-primary">Registra</button>
                   }
                   {operacion==="actualizar" && 
-                    <buttom className="btn btn-warning me-3">Actualizar</buttom>
+                    <button className="btn btn-warning">Actualizar</button>
                   }
-                  <buttom className="btn btn-danger ">Cancelar</buttom>
+                </div>
+                <div className='col-auto'>
+                  <button className="btn btn-danger ">Cancelar</button>
                 </div>
               </div>
             </div>
