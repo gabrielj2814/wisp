@@ -3,6 +3,7 @@ import DashboardComponent from '../../components/dashboardComponent'
 import {useRouter} from 'next/router'
 import BreadcrumbComponent from '../../components/breadcrumbComponent'
 import Link from "next/link"
+import AlertComponent from '../../components/alertComponent'
 // component form
 import CampoTextoNormalComponent from "../../components/campoTextoNormalComponent"
 import CampoTextAreaNormalComponent from "../../components/campoTextAreaNormalComponent"
@@ -10,7 +11,7 @@ import CampoTextAreaNormalComponent from "../../components/campoTextAreaNormalCo
 
 export default function formulario(props){
   const router = useRouter()
-  const { operacion } = router.query
+  let {operacion,id=null} = router.query
   // migas de pan
   const ruta= [
     {
@@ -59,7 +60,14 @@ export default function formulario(props){
             <Link href="/cliente" className="btn btn-primary">Regresar</Link>
       </div>
       <h1 className=' text-white text-center mb-2'>Formulario Cliente</h1>
-      <div className='text-white text-center mb-5'>los campos con <span className='text-danger'>(*)</span> son obligatorios</div>
+      <div className='text-white text-center mb-4'>los campos con <span className='text-danger'>(*)</span> son obligatorios</div>
+      <div className=' container-fluid'>
+        <div className=' row justify-content-center'>
+          <div id="columnaAlerta" className=' col-10 col-sm-10 col-md-9 col-lg-9 col-xl-8'>
+            {/* zona aleta */}
+          </div>
+        </div>
+      </div>
       <div className=' container-fluid'>
         <form id="formularioCliente" onSubmit={cancelarOnSubmit} className=' row justify-content-center'>
           <div className='col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11'>
@@ -113,7 +121,7 @@ export default function formulario(props){
                   }
                 </div>
                 <div className='col-auto'>
-                  <button className="btn btn-danger ">Cancelar</button>
+                  <Link href="/cliente" className="btn btn-danger ">Cancelar</Link>
                 </div>
               </div>
             </div>

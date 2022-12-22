@@ -90,7 +90,7 @@ textarea {
   transition: transform 0.5s ease-out;
 }
 .dashboard-component .contenedor-menu .menu-movil .contenedor-items-movil .items-movil {
-  width: 50vw;
+  width: 60vw;
   height: 100vh;
   background-color: #161b22;
 }
