@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: node-frontend
+        # image: docker.io/library/node:18-alpine3.16 investigar si esto funciona
+        image: node:18-alpine3.16
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name:  volumen-frontend
+          mountPath:  /home/app
+        command:
+          - npm run build
+          - npm run start
+      volumes:
+      - name:  volumen-frontend
+        hostPath:
+          path:  \frontend
+          type: Directory
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend
+spec:
+  selector:
+    tier:  frontend
+  type: NodePort
+  ports:
+  - name:  port-frontend
+    port:  3000
+    targetPort:  3000
+    nodePort: 30000

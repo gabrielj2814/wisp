@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: wisp-frontend
+        image: gabrieljesusdev/wisp_frontend:1
+        ports:
+        - containerPort: 3000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend
+  labels:
+    tier:  frontend
+spec:
+  selector:
+    tier:  frontend
+  type: NodePort
+  ports:
+  - name:  port-frontend
+    port:  8080
+    targetPort:  3000
+    nodePort: 30000
