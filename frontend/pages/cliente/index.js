@@ -110,13 +110,29 @@ export default function Cliente(props){
               </div>
             </div>
           </div>
-          <ModalComponent id="modalInfo" clasesStyle="modal-lg">
+          <ModalComponent id="modalInfo" clasesStyle="modal-info modal-lg">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="modalInfoLabel">Datos del Cliente</h1>
               <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalInfo" onClick={modalToggle}></button>
             </div>
             <div className="modal-body">
-              ...
+              <div className=' container-fluid'>
+                <div className=' row justify-content-center justify-content-lg-start'>
+                  <div className=' col-auto mb-3'>
+                    <Imagen className='imagen-avatar-modal-info' src={testAvatar} alt="avatar cliente"/>
+                  </div>
+                  <div className=' col-12 col-lg-6'>
+                    <div className=' mb-2'><span>Cedula/DNI: </span>27636392</div>
+                    <div className=' mb-2'><span>Nombres: </span>Gabriel Jesus</div>
+                    <div className=' mb-2'><span>Apellidos: </span>Valera Castillo</div>
+                    <div className=' mb-2'><span>Correo: </span> <a href='mailto:gabrielj2814@hotmail.com'>gabrielj2814@hotmail.com</a> </div>
+                    <div className=' mb-2'><span>Telefono Movil: </span>04160430565</div>
+                    <div className=' mb-2'><span>Telefono Fijo: </span>04160430565</div>
+                    <div className=' mb-2'><span>Dirección: </span></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-id-modal="modalInfo" onClick={modalToggle}>Cerrar</button>

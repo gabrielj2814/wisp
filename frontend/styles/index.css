@@ -150,6 +150,11 @@ textarea {
   padding: 0;
 }
 
+.modulo-cliente-inicio .modal-info .imagen-avatar-modal-info {
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
+}
 .modulo-cliente-inicio .table-movil tr, .modulo-cliente-inicio .table-desktop tr {
   cursor: pointer;
 }

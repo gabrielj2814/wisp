@@ -166,6 +166,15 @@ textarea{
 }
 
 .modulo-cliente-inicio{
+
+    .modal-info{
+        .imagen-avatar-modal-info{
+            width: 280px;
+            height: 280px;
+            border-radius: 10px;
+        }
+    }
+
     .table-movil,.table-desktop{
         tr{
             cursor: pointer;
@@ -189,7 +198,6 @@ textarea{
                 }
             }
         }
-
     }
 }
 
