@@ -12,7 +12,7 @@ export default function AlertComponent(props){
     return(
         <div className={props.clasesStyleAlert+" alert alert-dismissible fade hide mb-5"} role="alert">
             {props.texto}
-            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={ocultarAlerta}></button>
+            <button type="button" className="btn-close" onClick={ocultarAlerta}></button>
         </div>
 
     )

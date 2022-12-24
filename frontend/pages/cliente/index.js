@@ -3,6 +3,13 @@ import Link from "next/link"
 import DashboardComponent from '../../components/dashboardComponent'
 import BreadcrumbComponent from '../../components/breadcrumbComponent'
 import AlertComponent from '../../components/alertComponent'
+import Imagen from "next/image"
+import ModalComponent from '../../components/modalComponent'
+// image
+import testAvatar from "../../public/images/test-avatar.jpeg"
+import testAvatarDos from "../../public/images/test-avatar2.jpeg"
+import testAvatarTres from "../../public/images/test-avatar3.jpeg"
+import testAvatarCuatro from "../../public/images/test-avatar4.jpeg"
 
 
 export default function Cliente(props){
@@ -16,6 +23,29 @@ export default function Cliente(props){
       textLink:"Cliente"
     }
   ]
+
+  function modalToggle(boton){
+    let {target} = boton
+    modalTaggleId(target.getAttribute("data-id-modal"))
+  }
+
+  function modalTaggleId(id){
+    let modal = document.getElementById(id)
+    if(modal.classList.contains("show")){
+      modal.classList.remove("show")
+      modal.style.display="none"
+      modal.removeAttribute("role")
+      modal.removeAttribute("aria-modal")
+      modal.setAttribute("aria-hidden","true")
+    }
+    else{
+      modal.classList.add("show")
+      modal.style.display="block"
+      modal.setAttribute("role","dialog")
+      modal.setAttribute("aria-modal","true")
+      modal.removeAttribute("aria-hidden")
+    }
+  }
 
 
     let contenido=(
@@ -33,12 +63,23 @@ export default function Cliente(props){
               </div>
             </div>
           </div>
-          {/* volver la table en un componente reutilizable */}
-          {/* buscar una forma en representar los datos en la vista de inicio en los modulos por que en desktop se utilizara las tablas */}
+          <ModalComponent id="modalInfo">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="modalInfoLabel">Datos del Cliente</h1>
+              <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalInfo" onClick={modalToggle}></button>
+            </div>
+            <div className="modal-body">
+              ...
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-id-modal="modalInfo" onClick={modalToggle}>Cerrar</button>
+              <button className="btn btn-warning">editar</button>
+            </div>
+          </ModalComponent>
           <div className=' container-fluid'>
             <div className=' row justify-content-center'>
               <div className='col-12 col-sm-11 col-md-11 col-lg-10 col-xl-10'>
-                <table className=" table table-striped table-dark table-hover table-md d-none d-lg-table">
+                <table className=" table table-striped table-dark table-hover table-md d-none d-lg-table table-desktop">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -48,13 +89,18 @@ export default function Cliente(props){
                       <th scope="col">Apellidos</th>
                       <th scope="col"></th>
                       <th scope="col"></th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1</td>
+                      <td className='numero-indice-tabla'>1</td>
                       <td>27636392</td>
-                      <td>Foto</td>
+                      <td>
+                        <div className='contendor-imagen-avatar'>
+                          <Imagen className='imagen-avatar-movil' src={testAvatar} alt="avatar cliente"/>
+                        </div> 
+                      </td>
                       <td>Gabriel Jesus</td>
                       <td>Valera Castillo</td>
                       <td>
@@ -63,11 +109,74 @@ export default function Cliente(props){
                       <td>
                         <button className="btn btn-danger">eliminar</button>
                       </td>
+                      <td>
+                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className='numero-indice-tabla'>2</td>
+                      <td>27636392</td>
+                      <td>
+                        <div className='contendor-imagen-avatar'>
+                          <Imagen className='imagen-avatar-movil' src={testAvatarDos} alt="avatar cliente"/>
+                        </div> 
+                      </td>
+                      <td>Gabriel Jesus</td>
+                      <td>Valera Castillo</td>
+                      <td>
+                        <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                      </td>
+                      <td>
+                        <button className="btn btn-danger">eliminar</button>
+                      </td>
+                      <td>
+                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className='numero-indice-tabla'>3</td>
+                      <td>27636392</td>
+                      <td>
+                        <div className='contendor-imagen-avatar'>
+                          <Imagen className='imagen-avatar-movil' src={testAvatarTres} alt="avatar cliente"/>
+                        </div> 
+                      </td>
+                      <td>Gabriel Jesus</td>
+                      <td>Valera Castillo</td>
+                      <td>
+                        <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                      </td>
+                      <td>
+                        <button className="btn btn-danger">eliminar</button>
+                      </td>
+                      <td>
+                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className='numero-indice-tabla'>4</td>
+                      <td>27636392</td>
+                      <td>
+                        <div className='contendor-imagen-avatar'>
+                          <Imagen className='imagen-avatar-movil' src={testAvatarCuatro} alt="avatar cliente"/>
+                        </div> 
+                      </td>
+                      <td>Gabriel Jesus</td>
+                      <td>Valera Castillo</td>
+                      <td>
+                        <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                      </td>
+                      <td>
+                        <button className="btn btn-danger">eliminar</button>
+                      </td>
+                      <td>
+                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                      </td>
                     </tr>
 
                   </tbody>
                 </table>
-                <table className=" table table-striped table-dark table-hover table-md d-table d-lg-none">
+                <table className=" table table-striped table-dark table-hover table-md d-table d-lg-none table-movil">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -77,23 +186,45 @@ export default function Cliente(props){
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Foto</td>
-                      <td>Gabriel Jesus</td>
-                      <td>Valera Castillo</td>
+                    <tr data-id-modal="modalInfo" onClick={modalToggle}>
+                      <td className='numero-indice-tabla' data-id-modal="modalInfo"> 1 </td>
+                      <td> 
+                        <div className='contendor-imagen-avatar' data-id-modal="modalInfo">
+                          <Imagen className='imagen-avatar-movil' src={testAvatar} alt="avatar cliente" data-id-modal="modalInfo"/>
+                        </div> 
+                      </td>
+                      <td data-id-modal="modalInfo"> Gabriel Jesus </td>
+                      <td data-id-modal="modalInfo"> Valera Castillo </td>
                     </tr>
                     <tr>
-                      <td>1</td>
-                      <td>Foto</td>
-                      <td>Gabriel Jesus</td>
-                      <td>Valera Castillo</td>
+                      <td className='numero-indice-tabla'> 2 </td>
+                      <td> 
+                        <div className='contendor-imagen-avatar'>
+                          <Imagen className='imagen-avatar-movil' src={testAvatarDos} alt="avatar cliente"/>
+                        </div> 
+                      </td>
+                      <td> Gabriel Jesus </td>
+                      <td> Valera Castillo </td>
                     </tr>
                     <tr>
-                      <td>1</td>
-                      <td>Foto</td>
-                      <td>Gabriel Jesus</td>
-                      <td>Valera Castillo</td>
+                      <td className='numero-indice-tabla'> 3 </td>
+                      <td> 
+                        <div className='contendor-imagen-avatar'>
+                          <Imagen className='imagen-avatar-movil' src={testAvatarTres} alt="avatar cliente"/>
+                        </div> 
+                      </td>
+                      <td> Gabriel Jesus </td>
+                      <td> Valera Castillo </td>
+                    </tr>
+                    <tr>
+                      <td className='numero-indice-tabla'> 4 </td>
+                      <td> 
+                        <div className='contendor-imagen-avatar'>
+                          <Imagen className='imagen-avatar-movil' src={testAvatarCuatro} alt="avatar cliente"/>
+                        </div> 
+                      </td>
+                      <td> Gabriel Jesus </td>
+                      <td> Valera Castillo </td>
                     </tr>
 
                   </tbody>
