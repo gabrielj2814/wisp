@@ -10,10 +10,13 @@ import testAvatar from "../../public/images/test-avatar.jpeg"
 import testAvatarDos from "../../public/images/test-avatar2.jpeg"
 import testAvatarTres from "../../public/images/test-avatar3.jpeg"
 import testAvatarCuatro from "../../public/images/test-avatar4.jpeg"
+// hook
+import {useRouter} from 'next/router'
 
 
 export default function Cliente(props){
   // migas de pan
+  const router = useRouter()
   const ruta= [
     {
       ruta:"/",
@@ -47,6 +50,50 @@ export default function Cliente(props){
     }
   }
 
+  function modalInfo(boton){
+    let {target} = boton
+    modalTaggleId("modalInfo")
+    let modal = document.getElementById("modalInfo")
+    let $botonModalEditar = document.getElementById("botonModalEditar")
+    let $botonModalInfoEliminar = document.getElementById("botonModalInfoEliminar")
+    if(modal.classList.contains("show")){
+      let link = `/cliente/actualizar?id=${target.getAttribute("data-id-cliente")}`
+      $botonModalEditar.setAttribute("data-link",link)
+      $botonModalInfoEliminar.setAttribute("data-id-cliente",target.getAttribute("data-id-cliente"))
+    }
+  }
+
+  function eliminarModalInfo(boton){
+    let {target} = boton
+    eliminar(target.getAttribute("data-id-cliente"))
+    modalTaggleId("modalInfo")
+  }
+
+  function irAFormularioEditar(e){
+    let {target} = e
+    router.push(target.getAttribute("data-link"))
+  }
+
+  function modalEliminar(boton){
+    let {target} = boton
+    modalTaggleId("modalEliminar")
+    let modal = document.getElementById("modalEliminar")
+    let $botonEliminar = document.getElementById("botonEliminar")
+    if(modal.classList.contains("show")){
+      $botonEliminar.setAttribute("data-id-cliente",target.getAttribute("data-id-cliente"))
+    }
+  }
+
+  function eliminarModalEliminar(boton){
+    let {target} = boton
+    eliminar(target.getAttribute("data-id-cliente"))
+    modalTaggleId("modalEliminar")
+    
+  }
+
+  function eliminar(id){
+    console.log("registro eliminado "+id)
+  }
 
     let contenido=(
       <section className='min-vh-100 modulo-cliente-inicio pb-5'>
@@ -63,7 +110,7 @@ export default function Cliente(props){
               </div>
             </div>
           </div>
-          <ModalComponent id="modalInfo">
+          <ModalComponent id="modalInfo" clasesStyle="modal-lg">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="modalInfoLabel">Datos del Cliente</h1>
               <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalInfo" onClick={modalToggle}></button>
@@ -73,7 +120,22 @@ export default function Cliente(props){
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-id-modal="modalInfo" onClick={modalToggle}>Cerrar</button>
-              <button className="btn btn-warning">editar</button>
+              <button id='botonModalEditar' className="btn btn-warning" data-link="" onClick={irAFormularioEditar}>Editar</button>
+              <span className='d-block d-lg-none'> o </span>
+              <button id='botonModalInfoEliminar' className="btn btn-warning d-block d-lg-none" onClick={eliminarModalInfo} data-id-cliente="">Eliminar</button>
+            </div>
+          </ModalComponent>
+          <ModalComponent id="modalEliminar" clasesStyle="modal-lg">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="modalEliminarLabel">Modal Eliminar Cliente</h1>
+              <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalEliminar" onClick={modalToggle}></button>
+            </div>
+            <div className="modal-body">
+              <h5 id='modalEliminarMensaje'>Esta seguro que desea eliminar al cliente</h5>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-id-modal="modalEliminar" onClick={modalToggle}>Cerrar</button>
+              <button id='botonEliminar' className="btn btn-warning" onClick={eliminarModalEliminar} data-id-cliente="">Eliminar</button>
             </div>
           </ModalComponent>
           <div className=' container-fluid'>
@@ -107,10 +169,10 @@ export default function Cliente(props){
                         <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
                       </td>
                       <td>
-                        <button className="btn btn-danger">eliminar</button>
+                        <button className="btn btn-danger" onClick={modalEliminar} data-id-cliente="1">eliminar</button>
                       </td>
                       <td>
-                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                        <button className="btn btn-info" onClick={modalInfo} data-id-cliente="1">ver info</button>
                       </td>
                     </tr>
                     <tr>
@@ -124,13 +186,13 @@ export default function Cliente(props){
                       <td>Gabriel Jesus</td>
                       <td>Valera Castillo</td>
                       <td>
-                        <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                        <Link href="/cliente/actualizar?id=2" className="btn btn-warning">editar</Link>
                       </td>
                       <td>
-                        <button className="btn btn-danger">eliminar</button>
+                        <button className="btn btn-danger" onClick={modalEliminar} data-id-cliente="2">eliminar</button>
                       </td>
                       <td>
-                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                        <button className="btn btn-info" onClick={modalInfo} data-id-cliente="2" >ver info</button>
                       </td>
                     </tr>
                     <tr>
@@ -144,13 +206,13 @@ export default function Cliente(props){
                       <td>Gabriel Jesus</td>
                       <td>Valera Castillo</td>
                       <td>
-                        <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                        <Link href="/cliente/actualizar?id=3" className="btn btn-warning">editar</Link>
                       </td>
                       <td>
-                        <button className="btn btn-danger">eliminar</button>
+                        <button className="btn btn-danger" onClick={modalEliminar} data-id-cliente="3">eliminar</button>
                       </td>
                       <td>
-                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                        <button className="btn btn-info" onClick={modalInfo} data-id-cliente="3" >ver info</button>
                       </td>
                     </tr>
                     <tr>
@@ -164,13 +226,13 @@ export default function Cliente(props){
                       <td>Gabriel Jesus</td>
                       <td>Valera Castillo</td>
                       <td>
-                        <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                        <Link href="/cliente/actualizar?id=4" className="btn btn-warning">editar</Link>
                       </td>
                       <td>
-                        <button className="btn btn-danger">eliminar</button>
+                        <button className="btn btn-danger" onClick={modalEliminar} data-id-cliente="4">eliminar</button>
                       </td>
                       <td>
-                        <button className="btn btn-info" onClick={modalToggle} data-id-modal="modalInfo">ver info</button>
+                        <button className="btn btn-info" onClick={modalInfo} data-id-cliente="4" >ver info</button>
                       </td>
                     </tr>
 
@@ -186,45 +248,45 @@ export default function Cliente(props){
                     </tr>
                   </thead>
                   <tbody>
-                    <tr data-id-modal="modalInfo" onClick={modalToggle}>
-                      <td className='numero-indice-tabla' data-id-modal="modalInfo"> 1 </td>
+                    <tr data-id-cliente="1" onClick={modalInfo}>
+                      <td className='numero-indice-tabla' data-id-cliente="1"> 1 </td>
                       <td> 
-                        <div className='contendor-imagen-avatar' data-id-modal="modalInfo">
-                          <Imagen className='imagen-avatar-movil' src={testAvatar} alt="avatar cliente" data-id-modal="modalInfo"/>
+                        <div className='contendor-imagen-avatar' data-id-cliente="1">
+                          <Imagen className='imagen-avatar-movil' src={testAvatar} alt="avatar cliente" data-id-cliente="1"/>
                         </div> 
                       </td>
-                      <td data-id-modal="modalInfo"> Gabriel Jesus </td>
-                      <td data-id-modal="modalInfo"> Valera Castillo </td>
+                      <td data-id-cliente="1"> Gabriel Jesus </td>
+                      <td data-id-cliente="1"> Valera Castillo </td>
                     </tr>
-                    <tr>
-                      <td className='numero-indice-tabla'> 2 </td>
-                      <td> 
-                        <div className='contendor-imagen-avatar'>
-                          <Imagen className='imagen-avatar-movil' src={testAvatarDos} alt="avatar cliente"/>
+                    <tr data-id-cliente="2" onClick={modalInfo}>
+                      <td className='numero-indice-tabla' data-id-cliente="2"> 2 </td>
+                      <td > 
+                        <div className='contendor-imagen-avatar' data-id-cliente="2">
+                          <Imagen className='imagen-avatar-movil' src={testAvatarDos} alt="avatar cliente" data-id-cliente="2"/>
                         </div> 
                       </td>
-                      <td> Gabriel Jesus </td>
-                      <td> Valera Castillo </td>
+                      <td data-id-cliente="2"> Gabriel Jesus </td>
+                      <td data-id-cliente="2"> Valera Castillo </td>
                     </tr>
-                    <tr>
-                      <td className='numero-indice-tabla'> 3 </td>
-                      <td> 
-                        <div className='contendor-imagen-avatar'>
-                          <Imagen className='imagen-avatar-movil' src={testAvatarTres} alt="avatar cliente"/>
+                    <tr data-id-cliente="3" onClick={modalInfo}>
+                      <td className='numero-indice-tabla'data-id-cliente="3"> 3 </td>
+                      <td > 
+                        <div className='contendor-imagen-avatar' data-id-cliente="3">
+                          <Imagen className='imagen-avatar-movil' src={testAvatarTres} alt="avatar cliente" data-id-cliente="3"/>
                         </div> 
                       </td>
-                      <td> Gabriel Jesus </td>
-                      <td> Valera Castillo </td>
+                      <td data-id-cliente="3"> Gabriel Jesus </td>
+                      <td data-id-cliente="3"> Valera Castillo </td>
                     </tr>
-                    <tr>
-                      <td className='numero-indice-tabla'> 4 </td>
+                    <tr data-id-cliente="4" onClick={modalInfo}>
+                      <td className='numero-indice-tabla' data-id-cliente="4"> 4 </td>
                       <td> 
-                        <div className='contendor-imagen-avatar'>
-                          <Imagen className='imagen-avatar-movil' src={testAvatarCuatro} alt="avatar cliente"/>
+                        <div className='contendor-imagen-avatar' data-id-cliente="4">
+                          <Imagen className='imagen-avatar-movil' src={testAvatarCuatro} alt="avatar cliente" data-id-cliente="4"/>
                         </div> 
                       </td>
-                      <td> Gabriel Jesus </td>
-                      <td> Valera Castillo </td>
+                      <td data-id-cliente="4"> Gabriel Jesus </td>
+                      <td data-id-cliente="4"> Valera Castillo </td>
                     </tr>
 
                   </tbody>
