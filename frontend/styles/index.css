@@ -151,8 +151,8 @@ textarea {
 }
 
 .modulo-cliente-inicio .modal-info .imagen-avatar-modal-info {
-  width: 280px;
-  height: 280px;
+  width: 280px !important;
+  height: 280px !important;
   border-radius: 10px;
 }
 .modulo-cliente-inicio .table-movil tr, .modulo-cliente-inicio .table-desktop tr {
