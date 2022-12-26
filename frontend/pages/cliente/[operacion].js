@@ -191,7 +191,7 @@ export default function formulario(props){
   return(
   <>
     <Head>
-    <title>WISP | Modulo Cliente formulario</title>
+    <title>WISP | Modulo Cliente Formulario</title>
     <meta name="description" content="ss" />
     <link rel="icon" href="/favicon.ico" />
     </Head>

@@ -1,0 +1,8 @@
+{
+    "id":"ObjectId",
+    "nombre":"string",
+    "velocidad":"string",
+    "medida_velocidad":"string",
+    "descripcion":"string",
+    "fecha_actualizacion":"string"
+}

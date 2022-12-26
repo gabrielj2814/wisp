@@ -6,5 +6,6 @@
     "telefono_movil":"string",
     "telefono_fijo":"string",
     "url_foto":"string",
-    "direccion":"date"
+    "direccion":"string",
+    "fecha_actualizacion":"string"
 }

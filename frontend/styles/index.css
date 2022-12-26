@@ -200,6 +200,13 @@ textarea {
   max-width: 100%;
 }
 
+.modulo-plan-inicio .table-movil tr, .modulo-plan-inicio .table-desktop tr {
+  cursor: pointer;
+}
+.modulo-plan-inicio .table-movil tr .numero-indice-tabla, .modulo-plan-inicio .table-desktop tr .numero-indice-tabla {
+  text-align: center;
+}
+
 @media screen and (min-width: 1400px) {
   .dashboard-component .contenedor-menu, .dashboard-component .columna-oculta {
     width: 5%;
