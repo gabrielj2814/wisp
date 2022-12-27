@@ -4,5 +4,6 @@
     "velocidad":"string",
     "medida_velocidad":"string",
     "descripcion":"string",
+    "precio":"number",
     "fecha_actualizacion":"string"
 }

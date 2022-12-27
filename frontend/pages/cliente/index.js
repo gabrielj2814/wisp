@@ -9,6 +9,7 @@ import ModalComponent from '../../components/modalComponent'
 import { useRouter } from 'next/router'
 // ipServices
 import ipServices from '../../ipServices'
+import avatarTest from "../../public/images/test-avatar.jpeg"
 
 export default function Cliente(props) {
   // migas de pan
@@ -116,7 +117,8 @@ export default function Cliente(props) {
           <div className=' container-fluid'>
             <div className=' row justify-content-center justify-content-lg-start'>
               <div className=' col-auto mb-3'>
-                <Imagen className='imagen-avatar-modal-info' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={1024} alt="avatar cliente" />
+                {/* <Imagen className='imagen-avatar-modal-info' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={1024} alt="avatar cliente" /> */}
+                <Imagen className='imagen-avatar-modal-info' src={avatarTest} width={800} height={1024} alt="avatar cliente" />
               </div>
               <div className=' col-12 col-lg-6'>
                 <div className=' mb-2'><span>Cedula/DNI: </span>27636392</div>
@@ -173,8 +175,8 @@ export default function Cliente(props) {
                   <td>27636392</td>
                   <td>
                     <div className='contendor-imagen-avatar'>
-                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP+"/images/test-avatar.jpeg"} alt="avatar cliente"/> */}
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={800} alt="avatar cliente" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={800} alt="avatar cliente" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" />
                     </div>
                   </td>
                   <td>Gabriel Jesus</td>
@@ -194,7 +196,8 @@ export default function Cliente(props) {
                   <td>27636392</td>
                   <td>
                     <div className='contendor-imagen-avatar'>
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar2.jpeg"} width={800} height={800} alt="avatar cliente" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar2.jpeg"} width={800} height={800} alt="avatar cliente" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" />
                     </div>
                   </td>
                   <td>Gabriel Jesus</td>
@@ -214,7 +217,8 @@ export default function Cliente(props) {
                   <td>27636392</td>
                   <td>
                     <div className='contendor-imagen-avatar'>
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar3.jpeg"} width={800} height={800} alt="avatar cliente" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar3.jpeg"} width={800} height={800} alt="avatar cliente" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" />
                     </div>
                   </td>
                   <td>Gabriel Jesus</td>
@@ -234,7 +238,8 @@ export default function Cliente(props) {
                   <td>27636392</td>
                   <td>
                     <div className='contendor-imagen-avatar'>
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar4.jpeg"} width={800} height={800} alt="avatar cliente" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar4.jpeg"} width={800} height={800} alt="avatar cliente" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" />
                     </div>
                   </td>
                   <td>Gabriel Jesus</td>
@@ -266,7 +271,8 @@ export default function Cliente(props) {
                   <td className='numero-indice-tabla' data-id-cliente="1"> 1 </td>
                   <td>
                     <div className='contendor-imagen-avatar' data-id-cliente="1">
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="1" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="1" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" data-id-cliente="1" />
                     </div>
                   </td>
                   <td data-id-cliente="1"> Gabriel Jesus </td>
@@ -276,7 +282,8 @@ export default function Cliente(props) {
                   <td className='numero-indice-tabla' data-id-cliente="2"> 2 </td>
                   <td >
                     <div className='contendor-imagen-avatar' data-id-cliente="2">
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar2.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="2" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar2.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="2" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" data-id-cliente="2" />
                     </div>
                   </td>
                   <td data-id-cliente="2"> Gabriel Jesus </td>
@@ -286,7 +293,8 @@ export default function Cliente(props) {
                   <td className='numero-indice-tabla' data-id-cliente="3"> 3 </td>
                   <td >
                     <div className='contendor-imagen-avatar' data-id-cliente="3">
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar3.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="3" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar3.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="3" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" data-id-cliente="3" />
                     </div>
                   </td>
                   <td data-id-cliente="3"> Gabriel Jesus </td>
@@ -296,7 +304,8 @@ export default function Cliente(props) {
                   <td className='numero-indice-tabla' data-id-cliente="4"> 4 </td>
                   <td>
                     <div className='contendor-imagen-avatar' data-id-cliente="4">
-                      <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar4.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="4" />
+                      {/* <Imagen className='imagen-avatar-movil' src={SERVICES_BACKEND_WISP + "/images/test-avatar4.jpeg"} width={800} height={800} alt="avatar cliente" data-id-cliente="4" /> */}
+                      <Imagen className='imagen-avatar-movil' src={avatarTest} width={800} height={800} alt="avatar cliente" data-id-cliente="4" />
                     </div>
                   </td>
                   <td data-id-cliente="4"> Gabriel Jesus </td>

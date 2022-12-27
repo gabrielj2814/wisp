@@ -28,9 +28,9 @@ export default function Formulario(){
     ]
 
     let contenido=(
-        <>
+        <section className='min-vh-100 modulo-plan-formulario pb-5'>
             <h1> vista formulario del modulo plan </h1>
-        </>
+        </section>
     )
 
     return(

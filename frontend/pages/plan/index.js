@@ -10,15 +10,6 @@ import { useRouter } from 'next/router'
 // ipServices
 import ipServices from '../../ipServices'
 
-// TODO: flata layout de la modal desktop info
-// TODO: flata layout de la modal movil info
-// TODO: flata layout de la modal eliminar movil
-// TODO: flata layout de la modal eliminar desktop
-// TODO: el boton de editar de la tabla desktop redireccione al formulario
-// TODO: el boton de eliminar de la tabla desktop mostar la modal de esta seguro que quieres elimiar
-// TODO: que al hacer click en una fila en la tabla movil mostrar la modal movil
-// TODO: layout de la modal movil de la vista info con el boton eliminar y que el boton editar redireccione al formulario
-
 export default function Plan() {
     const SERVICES_BACKEND_WISP = `http://${ipServices.backendWisp.ip}:${ipServices.backendWisp.port}`
     const router = useRouter()
@@ -62,7 +53,7 @@ export default function Plan() {
         let $botonModalEditar = document.getElementById("botonModalEditar")
         let $botonModalInfoEliminar = document.getElementById("botonModalInfoEliminar")
         if (modal.classList.contains("show")) {
-            let link = `/cliente/actualizar?id=${target.getAttribute("data-id-plan")}`
+            let link = `/plan/actualizar?id=${target.getAttribute("data-id-plan")}`
             $botonModalEditar.setAttribute("data-link", link)
             $botonModalInfoEliminar.setAttribute("data-id-plan", target.getAttribute("data-id-plan"))
         }
@@ -118,23 +109,18 @@ export default function Plan() {
                 </div>
                 <ModalComponent id="modalInfo" clasesStyle="modal-info modal-lg">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="modalInfoLabel">Datos del Cliente</h1>
+                        <h1 className="modal-title fs-5" id="modalInfoLabel">Datos del Plan</h1>
                         <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalInfo" onClick={modalToggle}></button>
                     </div>
                     <div className="modal-body">
                         <div className=' container-fluid'>
                             <div className=' row justify-content-center justify-content-lg-start'>
-                                <div className=' col-auto mb-3'>
-                                    <Imagen className='imagen-avatar-modal-info' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={1024} alt="avatar cliente" />
-                                </div>
-                                <div className=' col-12 col-lg-6'>
-                                    <div className=' mb-2'><span>Cedula/DNI: </span>27636392</div>
-                                    <div className=' mb-2'><span>Nombres: </span>Gabriel Jesus</div>
-                                    <div className=' mb-2'><span>Apellidos: </span>Valera Castillo</div>
-                                    <div className=' mb-2'><span>Correo: </span> <a href='mailto:gabrielj2814@hotmail.com'>gabrielj2814@hotmail.com</a> </div>
-                                    <div className=' mb-2'><span>Telefono Movil: </span>04160430565</div>
-                                    <div className=' mb-2'><span>Telefono Fijo: </span>04160430565</div>
-                                    <div className=' mb-2'><span>Dirección: </span></div>
+                                <div className=' col-12'>
+                                    <div className=' mb-2'><span>Nombre: </span>Plan Basico</div>
+                                    <div className=' mb-2'><span>Velocidad: </span> 1MB/s</div>
+                                    <div className=' mb-2'><span>Precio: </span> 10$</div>
+                                    <div className=' mb-2'><span>Ultima Fecha de Actualización: </span> 26/12/2022</div>
+                                    <div className=' mb-2'><span>Descripción: </span></div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                             </div>
@@ -149,11 +135,11 @@ export default function Plan() {
                 </ModalComponent>
                 <ModalComponent id="modalEliminar" clasesStyle="modal-lg">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="modalEliminarLabel">Modal Eliminar Cliente</h1>
+                        <h1 className="modal-title fs-5" id="modalEliminarLabel">Modal Eliminar Plan</h1>
                         <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalEliminar" onClick={modalToggle}></button>
                     </div>
                     <div className="modal-body">
-                        <h5 id='modalEliminarMensaje'>Esta seguro que desea eliminar al cliente</h5>
+                        <h5 id='modalEliminarMensaje'>Esta seguro que desea eliminar el plan</h5>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-id-modal="modalEliminar" onClick={modalToggle}>Cerrar</button>
@@ -169,6 +155,7 @@ export default function Plan() {
                                         <th scope="col">#</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Velocidad</th>
+                                        <th scope="col">Precio</th>
                                         <th scope="col">Ultima Fecha De Act.</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
@@ -180,9 +167,10 @@ export default function Plan() {
                                         <td className='numero-indice-tabla'>1</td>
                                         <td>Plan Basico</td>
                                         <td>1 MB/s</td>
+                                        <td>10$</td>
                                         <td>29/21/22</td>
                                         <td>
-                                            <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                                            <Link href="/plan/actualizar?id=1" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
                                             <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="1">eliminar</button>
@@ -192,48 +180,35 @@ export default function Plan() {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className='numero-indice-tabla'>1</td>
+                                        <td className='numero-indice-tabla'>2</td>
                                         <td>Plan Basico</td>
                                         <td>1 MB/s</td>
+                                        <td>10$</td>
                                         <td>29/21/22</td>
                                         <td>
-                                            <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                                            <Link href="/plan/actualizar?id=2" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="1">eliminar</button>
+                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="2">eliminar</button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="1">ver info</button>
+                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="2">ver info</button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className='numero-indice-tabla'>1</td>
+                                        <td className='numero-indice-tabla'>3</td>
                                         <td>Plan Basico</td>
                                         <td>1 MB/s</td>
+                                        <td>10$</td>
                                         <td>29/21/22</td>
                                         <td>
-                                            <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
+                                            <Link href="/plan/actualizar?id=3" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="1">eliminar</button>
+                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="3">eliminar</button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="1">ver info</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className='numero-indice-tabla'>1</td>
-                                        <td>Plan Basico</td>
-                                        <td>1 MB/s</td>
-                                        <td>29/21/22</td>
-                                        <td>
-                                            <Link href="/cliente/actualizar?id=1" className="btn btn-warning">editar</Link>
-                                        </td>
-                                        <td>
-                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="1">eliminar</button>
-                                        </td>
-                                        <td>
-                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="1">ver info</button>
+                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="3">ver info</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -244,27 +219,31 @@ export default function Plan() {
                                         <th scope="col">#</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Velocidad</th>
+                                        <th scope="col">Precio</th>
                                         <th scope="col">Ultima Fecha De Act.</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr data-id-plan="4" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="4">1</td>
-                                        <td data-id-plan="4">Plan Basico</td>
-                                        <td data-id-plan="4">1 MB/s</td>
-                                        <td>29/21/22</td>
+                                    <tr data-id-plan="1" onClick={modalInfo}>
+                                        <td className='numero-indice-tabla' data-id-plan="1">1</td>
+                                        <td data-id-plan="1">Plan Basico</td>
+                                        <td data-id-plan="1">1 MB/s</td>
+                                        <td data-id-plan="1">10$</td>
+                                        <td data-id-plan="1">29/21/22</td>
                                     </tr>
-                                    <tr data-id-plan="4" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="4">1</td>
-                                        <td data-id-plan="4">Plan Basico</td>
-                                        <td data-id-plan="4">1 MB/s</td>
-                                        <td>29/21/22</td>
+                                    <tr data-id-plan="2" onClick={modalInfo}>
+                                        <td className='numero-indice-tabla' data-id-plan="2">2</td>
+                                        <td data-id-plan="2">Plan Basico</td>
+                                        <td data-id-plan="2">1 MB/s</td>
+                                        <td data-id-plan="2">10$</td>
+                                        <td data-id-plan="2">29/21/22</td>
                                     </tr>
-                                    <tr data-id-plan="4" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="4">1</td>
-                                        <td data-id-plan="4">Plan Basico</td>
-                                        <td data-id-plan="4">1 MB/s</td>
-                                        <td>29/21/22</td>
+                                    <tr data-id-plan="3" onClick={modalInfo}>
+                                        <td className='numero-indice-tabla' data-id-plan="3">3</td>
+                                        <td data-id-plan="3">Plan Basico</td>
+                                        <td data-id-plan="3">1 MB/s</td>
+                                        <td data-id-plan="3">10$</td>
+                                        <td data-id-plan="3">29/21/22</td>
                                     </tr>
                                 </tbody>
                             </table>
