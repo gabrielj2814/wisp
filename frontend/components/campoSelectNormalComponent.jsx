@@ -8,6 +8,7 @@ export default function CampoSelectdNormalComponent(props) {
                 {props.labelCampo}
             </label>
             <select id={props.id} name={props.name} className={props.clasesStyle} onChange={props.evento}>
+                <option value="null" >Seleccione</option>
                 {props.opcionesSelect.map((opcion,index) => {
                     return(<option key={index} value={opcion.value} >{opcion.valueOption}</option>)
                 })}

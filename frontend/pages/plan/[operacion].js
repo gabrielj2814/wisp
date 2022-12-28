@@ -11,12 +11,30 @@ import ModalComponent from '../../components/modalComponent'
 // hook
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-// TODO: agregar data dinamica al campo velocidad usando el hook useState y useEffect
-// TODO: agregar data estatica al campo medida usando el hook useState y useEffect
 
 export default function Formulario() {
     const router = useRouter()
-    // const [velocidad,setVelocidad] = useState(0)
+    const [maximoVelocidad,setMaximoVelocidad] = useState(10)
+    let velocidades = []
+    for (let index = 0; index < maximoVelocidad; index++) {
+        velocidades.push(
+            {
+                value:index+1,
+                valueOption:index+1
+            }
+        )
+        
+    }
+    let medidas = [
+        {
+            value:"mb",
+            valueOption:"MB"
+        },
+        {
+            value:"gb",
+            valueOption:"GB"
+        },
+    ]
     let { operacion } = router.query
     const ruta = [
         {
@@ -118,10 +136,10 @@ export default function Formulario() {
                                 <CampoTextoNormalComponent id="nombre" name="nombre" campoObligatorio="1" labelCampo="Nombre" clasesStyleLabel="text-white" clasesStyleCampo="form-control" placeholder="NOMBRE" />
                             </div>
                             <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
-                                <CampoSelectdNormalComponent opcionesSelect={[]} id="velocidad" name="velocidad" campoObligatorio="1" labelCampo="Velocidad" clasesStyleLabel="text-white" clasesStyle="form-control" />
+                                <CampoSelectdNormalComponent opcionesSelect={velocidades} id="velocidad" name="velocidad" campoObligatorio="1" labelCampo="Velocidad" clasesStyleLabel="text-white" clasesStyle="form-control" />
                             </div>
                             <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
-                                <CampoSelectdNormalComponent opcionesSelect={[]} id="medida_velocidad" name="medida_velocidad" campoObligatorio="1" labelCampo="Medida" clasesStyleLabel="text-white" clasesStyle="form-control" />
+                                <CampoSelectdNormalComponent opcionesSelect={medidas} id="medida_velocidad" name="medida_velocidad" campoObligatorio="1" labelCampo="Medida" clasesStyleLabel="text-white" clasesStyle="form-control" />
                             </div>
                         </div>
                         <div className=' row justify-content-center'>                            
