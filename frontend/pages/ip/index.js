@@ -7,8 +7,14 @@ import Imagen from "next/image"
 import ModalComponent from '../../components/modalComponent'
 // hook
 import { useRouter } from 'next/router'
+// TODO: agregar al modulo pi => layout del formulario ip
+// TODO: agregar al modulo pi => layout modal de la vista info (movil)
+// TODO: agregar al modulo pi => agregar funcionalidad a los botones de la modal info (movil)
+// TODO: agregar al modulo pi => botones funcionales de la modal eliminar
+// TODO: agregar al modulo pi => agregar funcionalidad al boton editar de la tabla desktop
 
-export default function Plan() {
+export default function Ip() {
+
     const router = useRouter()
     const ruta = [
         {
@@ -16,7 +22,7 @@ export default function Plan() {
             textLink: "Home"
         },
         {
-            textLink: "Plan"
+            textLink: "Ip"
         }
     ]
 
@@ -50,15 +56,15 @@ export default function Plan() {
         let $botonModalEditar = document.getElementById("botonModalEditar")
         let $botonModalInfoEliminar = document.getElementById("botonModalInfoEliminar")
         if (modal.classList.contains("show")) {
-            let link = `/plan/actualizar?id=${target.getAttribute("data-id-plan")}`
+            let link = `/plan/actualizar?id=${target.getAttribute("data-id-ip")}`
             $botonModalEditar.setAttribute("data-link", link)
-            $botonModalInfoEliminar.setAttribute("data-id-plan", target.getAttribute("data-id-plan"))
+            $botonModalInfoEliminar.setAttribute("data-id-ip", target.getAttribute("data-id-ip"))
         }
     }
 
     function eliminarModalInfo(boton) {
         let { target } = boton
-        eliminar(target.getAttribute("data-id-plan"))
+        eliminar(target.getAttribute("data-id-ip"))
         modalTaggleId("modalInfo")
     }
 
@@ -73,13 +79,13 @@ export default function Plan() {
         let modal = document.getElementById("modalEliminar")
         let $botonEliminar = document.getElementById("botonEliminar")
         if (modal.classList.contains("show")) {
-            $botonEliminar.setAttribute("data-id-plan", target.getAttribute("data-id-plan"))
+            $botonEliminar.setAttribute("data-id-ip", target.getAttribute("data-id-ip"))
         }
     }
 
     function eliminarModalEliminar(boton) {
         let { target } = boton
-        eliminar(target.getAttribute("data-id-plan"))
+        eliminar(target.getAttribute("data-id-ip"))
         modalTaggleId("modalEliminar")
     }
 
@@ -90,10 +96,10 @@ export default function Plan() {
 
     let contenido = (
         <>
-            <section className='min-vh-100 modulo-plan-inicio pb-5'>
+            <section className='min-vh-100 modulo-ip-inicio pb-5'>
                 <BreadcrumbComponent ruta={ruta} />
-                <h1 className=' text-white text-center mb-4'>Modulo Plan</h1>
-                <h5 className=' px-4 text-white text-center mb-5'>En este modulo podras resgistrar, actualizar o eliminar los planes del sistema</h5>
+                <h1 className=' text-white text-center mb-4'>Modulo Ip</h1>
+                <h5 className=' px-4 text-white text-center mb-5'>En este modulo podras resgistrar, actualizar o eliminar las Ip del sistema</h5>
                 <div className='d-flex justify-content-end mb-5 px-5'>
                     <Link href="/plan/registrar" className="btn btn-primary">ir a formulario</Link>
                 </div>
@@ -106,40 +112,32 @@ export default function Plan() {
                 </div>
                 <ModalComponent id="modalInfo" clasesStyle="modal-info modal-lg">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="modalInfoLabel">Datos del Plan</h1>
+                        <h1 className="modal-title fs-5" id="modalInfoLabel">Datos de la Ip</h1>
                         <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalInfo" onClick={modalToggle}></button>
                     </div>
                     <div className="modal-body">
                         <div className=' container-fluid'>
-                            <div className=' row justify-content-center justify-content-lg-start'>
-                                <div className=' col-12'>
-                                    <div className=' mb-2'><span>Nombre: </span>Plan Basico</div>
-                                    <div className=' mb-2'><span>Velocidad: </span> 1MB/s</div>
-                                    <div className=' mb-2'><span>Precio: </span> 10$</div>
-                                    <div className=' mb-2'><span>Descripción: </span></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-id-modal="modalInfo" onClick={modalToggle}>Cerrar</button>
                         <button id='botonModalEditar' className="btn btn-warning" data-link="" onClick={irAFormularioEditar}>Editar</button>
                         <span className='d-block d-lg-none'> o </span>
-                        <button id='botonModalInfoEliminar' className="btn btn-warning d-block d-lg-none" onClick={eliminarModalInfo} data-id-plan="">Eliminar</button>
+                        <button id='botonModalInfoEliminar' className="btn btn-warning d-block d-lg-none" onClick={eliminarModalInfo} data-id-ip="">Eliminar</button>
                     </div>
                 </ModalComponent>
                 <ModalComponent id="modalEliminar" clasesStyle="modal-lg">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="modalEliminarLabel">Modal Eliminar Plan</h1>
+                        <h1 className="modal-title fs-5" id="modalEliminarLabel">Modal Eliminar Ip</h1>
                         <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalEliminar" onClick={modalToggle}></button>
                     </div>
                     <div className="modal-body">
-                        <h5 id='modalEliminarMensaje'>Esta seguro que desea eliminar el plan</h5>
+                        <h5 id='modalEliminarMensaje'>Esta seguro que desea eliminar esta ip</h5>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-id-modal="modalEliminar" onClick={modalToggle}>Cerrar</button>
-                        <button id='botonEliminar' className="btn btn-warning" onClick={eliminarModalEliminar} data-id-plan="">Eliminar</button>
+                        <button id='botonEliminar' className="btn btn-warning" onClick={eliminarModalEliminar} data-id-ip="">Eliminar</button>
                     </div>
                 </ModalComponent>
                 <div className=' container-fluid'>
@@ -149,10 +147,8 @@ export default function Plan() {
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Velocidad</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Ip</th>
+                                        <th scope="col">Disponibilidad</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
@@ -160,47 +156,36 @@ export default function Plan() {
                                 <tbody>
                                     <tr>
                                         <td className='numero-indice-tabla'>1</td>
-                                        <td>Plan Basico</td>
-                                        <td>1 MB/s</td>
-                                        <td>10$</td>
+                                        <td>192.168.1.110</td>
+                                        <td>Disponible</td>
                                         <td>
                                             <Link href="/plan/actualizar?id=1" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="1">eliminar</button>
-                                        </td>
-                                        <td>
-                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="1">ver info</button>
+                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-ip="1">eliminar</button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td className='numero-indice-tabla'>2</td>
-                                        <td>Plan Basico</td>
-                                        <td>1 MB/s</td>
-                                        <td>10$</td>
+                                        <td>192.168.1.111</td>
+                                        <td>No Disponible</td>
                                         <td>
-                                            <Link href="/plan/actualizar?id=2" className="btn btn-warning">editar</Link>
+                                            <Link href="/plan/actualizar?id=1" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="2">eliminar</button>
+                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-ip="2">eliminar</button>
                                         </td>
-                                        <td>
-                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="2">ver info</button>
-                                        </td>
+
                                     </tr>
                                     <tr>
                                         <td className='numero-indice-tabla'>3</td>
-                                        <td>Plan Basico</td>
-                                        <td>1 MB/s</td>
-                                        <td>10$</td>
+                                        <td>192.168.1.112</td>
+                                        <td>Disponible</td>
                                         <td>
-                                            <Link href="/plan/actualizar?id=3" className="btn btn-warning">editar</Link>
+                                            <Link href="/plan/actualizar?id=1" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-plan="3">eliminar</button>
-                                        </td>
-                                        <td>
-                                            <button className="btn btn-info" onClick={modalInfo} data-id-plan="3">ver info</button>
+                                            <button className="btn btn-danger" onClick={modalEliminar} data-id-ip="3">eliminar</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -209,33 +194,25 @@ export default function Plan() {
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Velocidad</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">Ultima Fecha De Act.</th>
+                                        <th scope="col">Ip</th>
+                                        <th scope="col">Disponibilidad</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr data-id-plan="1" onClick={modalInfo}>
                                         <td className='numero-indice-tabla' data-id-plan="1">1</td>
-                                        <td data-id-plan="1">Plan Basico</td>
-                                        <td data-id-plan="1">1 MB/s</td>
-                                        <td data-id-plan="1">10$</td>
-                                        <td data-id-plan="1">29/21/22</td>
+                                        <td data-id-plan="1">192.168.1.110</td>
+                                        <td data-id-plan="1">Disponibles</td>
                                     </tr>
                                     <tr data-id-plan="2" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="2">2</td>
-                                        <td data-id-plan="2">Plan Basico</td>
-                                        <td data-id-plan="2">1 MB/s</td>
-                                        <td data-id-plan="2">10$</td>
-                                        <td data-id-plan="2">29/21/22</td>
+                                        <td className='numero-indice-tabla' data-id-plan="2">1</td>
+                                        <td data-id-plan="2">192.168.1.111</td>
+                                        <td data-id-plan="2">No Disponibles</td>
                                     </tr>
                                     <tr data-id-plan="3" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="3">3</td>
-                                        <td data-id-plan="3">Plan Basico</td>
-                                        <td data-id-plan="3">1 MB/s</td>
-                                        <td data-id-plan="3">10$</td>
-                                        <td data-id-plan="3">29/21/22</td>
+                                        <td className='numero-indice-tabla' data-id-plan="3">1</td>
+                                        <td data-id-plan="3">192.168.1.112</td>
+                                        <td data-id-plan="3">Disponibles</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -248,11 +225,11 @@ export default function Plan() {
     return (
         <>
             <Head>
-                <title>WISP | Modulo Plan</title>
-                <meta name="description" content="ss" />
+                <title>WISP | Modulo Ip</title>
+                <meta name="description" content="modulo ip" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <DashboardComponent contenidoDasborad={contenido} />
         </>
     )
-}
+} 

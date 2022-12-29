@@ -198,6 +198,7 @@ textarea{
         }
     }
 }
+
 .modulo-cliente-formulario{
     .imagen_label{
         width: 380px;
@@ -225,9 +226,6 @@ textarea{
 }
 
 .modulo-plan-inicio{
-    // .modal-info{
-    // }
-
     .table-movil,.table-desktop{
         tr{
             cursor: pointer;
@@ -235,21 +233,18 @@ textarea{
             .numero-indice-tabla{
                 text-align: center;
             }
-            // td{
-            //     height: 80px;
-            //     line-height: 80px;
-            //     .contendor-imagen-avatar{
-            //         width: 80px;
-            //         height: 80px;
-            //         overflow: hidden;
-            //         .imagen-avatar-movil{
-            //             width: 100%;
-            //             height: 100%;
-            //             display: block;
-            //             border-radius: 50%;
-            //         }
-            //     }
-            // }
+        }
+    }
+}
+
+.modulo-ip-inicio{
+    .table-movil,.table-desktop{
+        tr{
+            cursor: pointer;
+
+            .numero-indice-tabla{
+                text-align: center;
+            }
         }
     }
 }

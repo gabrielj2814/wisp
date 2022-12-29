@@ -146,7 +146,7 @@ export default function Formulario() {
                             <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
                                 <CampoTextoNormalComponent id="precio" name="precio" campoObligatorio="1" labelCampo="Precio" clasesStyleLabel="text-white" clasesStyleCampo="form-control" placeholder="PRECIO" />
                             </div>
-                            <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3 offset-10 offset-sm-10 offset-md-3 offset-lg-3 offset-xl-3'></div>
+                            <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3 offset-10 offset-sm-10 offset-md-3 offset-lg-3 offset-xl-3 d-none d-md-flex'></div>
                         </div>
                         <div className=' row justify-content-center'>
                             <div className='mb-4 col-10 col-sm-10 col-md-9 col-lg-9 col-xl-9'>

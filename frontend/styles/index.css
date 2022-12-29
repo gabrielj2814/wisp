@@ -207,6 +207,13 @@ textarea {
   text-align: center;
 }
 
+.modulo-ip-inicio .table-movil tr, .modulo-ip-inicio .table-desktop tr {
+  cursor: pointer;
+}
+.modulo-ip-inicio .table-movil tr .numero-indice-tabla, .modulo-ip-inicio .table-desktop tr .numero-indice-tabla {
+  text-align: center;
+}
+
 @media screen and (min-width: 1400px) {
   .dashboard-component .contenedor-menu, .dashboard-component .columna-oculta {
     width: 5%;
