@@ -7,11 +7,6 @@ import Imagen from "next/image"
 import ModalComponent from '../../components/modalComponent'
 // hook
 import { useRouter } from 'next/router'
-// TODO: agregar al modulo pi => layout del formulario ip
-// TODO: agregar al modulo pi => layout modal de la vista info (movil)
-// TODO: agregar al modulo pi => agregar funcionalidad a los botones de la modal info (movil)
-// TODO: agregar al modulo pi => botones funcionales de la modal eliminar
-// TODO: agregar al modulo pi => agregar funcionalidad al boton editar de la tabla desktop
 
 export default function Ip() {
 
@@ -56,7 +51,7 @@ export default function Ip() {
         let $botonModalEditar = document.getElementById("botonModalEditar")
         let $botonModalInfoEliminar = document.getElementById("botonModalInfoEliminar")
         if (modal.classList.contains("show")) {
-            let link = `/plan/actualizar?id=${target.getAttribute("data-id-ip")}`
+            let link = `/ip/actualizar?id=${target.getAttribute("data-id-ip")}`
             $botonModalEditar.setAttribute("data-link", link)
             $botonModalInfoEliminar.setAttribute("data-id-ip", target.getAttribute("data-id-ip"))
         }
@@ -101,7 +96,7 @@ export default function Ip() {
                 <h1 className=' text-white text-center mb-4'>Modulo Ip</h1>
                 <h5 className=' px-4 text-white text-center mb-5'>En este modulo podras resgistrar, actualizar o eliminar las Ip del sistema</h5>
                 <div className='d-flex justify-content-end mb-5 px-5'>
-                    <Link href="/plan/registrar" className="btn btn-primary">ir a formulario</Link>
+                    <Link href="/ip/registrar" className="btn btn-primary">ir a formulario</Link>
                 </div>
                 <div className=' container-fluid'>
                     <div className=' row justify-content-center'>
@@ -117,7 +112,12 @@ export default function Ip() {
                     </div>
                     <div className="modal-body">
                         <div className=' container-fluid'>
-
+                            <div className=' row justify-content-center justify-content-lg-start'>
+                                <div className=' col-12'>
+                                    <div className=' mb-2'><span>Ip: </span>192.168.1.110</div>
+                                    <div className=' mb-2'><span>Estado: </span>Disponible</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="modal-footer">
@@ -159,7 +159,7 @@ export default function Ip() {
                                         <td>192.168.1.110</td>
                                         <td>Disponible</td>
                                         <td>
-                                            <Link href="/plan/actualizar?id=1" className="btn btn-warning">editar</Link>
+                                            <Link href="/ip/actualizar?id=1" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
                                             <button className="btn btn-danger" onClick={modalEliminar} data-id-ip="1">eliminar</button>
@@ -170,7 +170,7 @@ export default function Ip() {
                                         <td>192.168.1.111</td>
                                         <td>No Disponible</td>
                                         <td>
-                                            <Link href="/plan/actualizar?id=1" className="btn btn-warning">editar</Link>
+                                            <Link href="/ip/actualizar?id=1" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
                                             <button className="btn btn-danger" onClick={modalEliminar} data-id-ip="2">eliminar</button>
@@ -182,7 +182,7 @@ export default function Ip() {
                                         <td>192.168.1.112</td>
                                         <td>Disponible</td>
                                         <td>
-                                            <Link href="/plan/actualizar?id=1" className="btn btn-warning">editar</Link>
+                                            <Link href="/ip/actualizar?id=1" className="btn btn-warning">editar</Link>
                                         </td>
                                         <td>
                                             <button className="btn btn-danger" onClick={modalEliminar} data-id-ip="3">eliminar</button>
@@ -199,20 +199,20 @@ export default function Ip() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr data-id-plan="1" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="1">1</td>
-                                        <td data-id-plan="1">192.168.1.110</td>
-                                        <td data-id-plan="1">Disponibles</td>
+                                    <tr data-id-ip="1" onClick={modalInfo}>
+                                        <td className='numero-indice-tabla' data-id-ip="1">1</td>
+                                        <td data-id-ip="1">192.168.1.110</td>
+                                        <td data-id-ip="1">Disponibles</td>
                                     </tr>
-                                    <tr data-id-plan="2" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="2">1</td>
-                                        <td data-id-plan="2">192.168.1.111</td>
-                                        <td data-id-plan="2">No Disponibles</td>
+                                    <tr data-id-ip="2" onClick={modalInfo}>
+                                        <td className='numero-indice-tabla' data-id-ip="2">1</td>
+                                        <td data-id-ip="2">192.168.1.111</td>
+                                        <td data-id-ip="2">No Disponibles</td>
                                     </tr>
-                                    <tr data-id-plan="3" onClick={modalInfo}>
-                                        <td className='numero-indice-tabla' data-id-plan="3">1</td>
-                                        <td data-id-plan="3">192.168.1.112</td>
-                                        <td data-id-plan="3">Disponibles</td>
+                                    <tr data-id-ip="3" onClick={modalInfo}>
+                                        <td className='numero-indice-tabla' data-id-ip="3">1</td>
+                                        <td data-id-ip="3">192.168.1.112</td>
+                                        <td data-id-ip="3">Disponibles</td>
                                     </tr>
                                 </tbody>
                             </table>
