@@ -1,0 +1,7 @@
+{
+    "_id":"ObjectId",
+    "fecha_inicio_suscripcion":"date",
+    "fecha_fin_suscripcion":"date",
+    "estado_del_servicio":"boolean",
+    "estado_de_pago":"boolean"
+}

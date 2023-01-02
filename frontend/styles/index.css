@@ -214,6 +214,18 @@ textarea {
   text-align: center;
 }
 
+.modulo-suscripcion-inicio .modal-info .imagen-avatar-modal-info {
+  width: 280px !important;
+  height: 280px !important;
+  border-radius: 10px;
+}
+.modulo-suscripcion-inicio .table-movil tr, .modulo-suscripcion-inicio .table-desktop tr {
+  cursor: pointer;
+}
+.modulo-suscripcion-inicio .table-movil tr .numero-indice-tabla, .modulo-suscripcion-inicio .table-desktop tr .numero-indice-tabla {
+  text-align: center;
+}
+
 @media screen and (min-width: 1400px) {
   .dashboard-component .contenedor-menu, .dashboard-component .columna-oculta {
     width: 5%;

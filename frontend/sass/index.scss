@@ -249,6 +249,25 @@ textarea{
     }
 }
 
+.modulo-suscripcion-inicio{
+    .modal-info{
+        .imagen-avatar-modal-info{
+            width: 280px !important;
+            height: 280px !important;
+            border-radius: 10px;
+        }
+    }
+    .table-movil,.table-desktop{
+        tr{
+            cursor: pointer;
+
+            .numero-indice-tabla{
+                text-align: center;
+            }
+        }
+    }
+}
+
 // xxl
 @media screen and (min-width: 1400px) {
     .dashboard-component{
