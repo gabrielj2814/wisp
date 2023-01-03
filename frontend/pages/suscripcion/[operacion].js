@@ -117,11 +117,29 @@ export default function formulario() {
                                 </div>
                                 <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3 offset-10 offset-sm-10 offset-md-3 offset-lg-3 offset-xl-3 d-none d-md-flex'></div>
                             </div>
+                            <div className=' row justify-content-center text-white'>
+                                <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
+                                    Nombre: nombre cliente
+                                </div>
+                                <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
+                                    Correo: ejemplo@hotmail.com
+                                </div>
+                                <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'></div>
+                            </div>
                             <div className=' row justify-content-center'>
                                 <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
                                     <CampoSelectdNormalComponent opcionesSelect={[]} id="plan" name="plan" campoObligatorio="1" labelCampo="Plan" clasesStyleLabel="text-white" clasesStyle="form-control" />
                                 </div>
                                 <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3 offset-10 offset-sm-10 offset-md-3 offset-lg-3 offset-xl-3 d-none d-md-flex'></div>
+                            </div>
+                            <div className=' row justify-content-center text-white'>
+                                <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
+                                    Velocidad: 100 MB
+                                </div>
+                                <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
+                                    Precio: $10
+                                </div>
+                                <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'></div>
                             </div>
                             <div className=' row justify-content-center'>
                                 <div className='mb-4 col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3'>
