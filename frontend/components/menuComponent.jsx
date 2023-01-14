@@ -67,12 +67,6 @@ export default class MenuComponent extends react.Component{
                                 {/* <span>Suscripción</span> */}
                             </Link>
                         </li>
-                        <li className=" mb-4">
-                            <Link href="#" className=" text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                                {/* <span>Registro de pago</span> */}
-                            </Link>
-                        </li>
                     </ul>
                 </div>
                 <div className="menu-movil d-block d-lg-none">
@@ -117,12 +111,6 @@ export default class MenuComponent extends react.Component{
                                             <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
                                         </svg>
                                         <span>Suscripción</span>
-                                    </Link>
-                                </li>
-                                <li className=" mb-4">
-                                    <Link href="#" className=" text-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                                        <span>Registro de pago</span>
                                     </Link>
                                 </li>
                             </ul>

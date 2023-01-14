@@ -111,7 +111,7 @@ export default function suscripcion() {
                         <button type="button" className="btn-close" aria-label="Close" data-id-modal="modalInfo" onClick={modalToggle}></button>
                     </div>
                     <div className="modal-body">
-                        <div className=' container-fluid'>
+                        <div className=' container-fluid mb-3'>
                             <div className=' row justify-content-center justify-content-lg-start'>
                                 <div className=' col-auto mb-3'>
                                     {/* <Imagen className='imagen-avatar-modal-info' src={SERVICES_BACKEND_WISP + "/images/test-avatar.jpeg"} width={800} height={1024} alt="avatar cliente" /> */}
@@ -121,13 +121,59 @@ export default function suscripcion() {
                                     <div className=' mb-2'><span>Cedula/DNI: </span>2636392</div>
                                     <div className=' mb-2'><span>Nombre Completo del Cliente: </span>Gabriel Jesus Valera Castillo</div>
                                     <div className=' mb-2'><span>Ip asignada: </span>192.168.1.110</div>
-                                    <div className=' mb-2'><span>Fecha de inicio del servicio: </span>01/01/2023</div>
-                                    <div className=' mb-2'><span>Fecha de corte del servicio: </span>01/02/2023</div>
                                     <div className=' mb-2'><span>Estado de pago del servicio: </span>Pago</div>
                                     <div className=' mb-2'><span>Estado del servicio: </span>Activo</div>
                                     <div className=' mb-2'><span>Precio del servicio: </span>$10</div>
+                                    {/* este boton solo se mostrar si el usuario no a pagado */}
+                                    <div className=' mb-2'>
+                                        <button className=' btn btn-danger'>Pagar Servico</button>
+                                    </div>
                                 </div>
                             </div>
+                            <h2 className=' text-center mb-3'>Historial de Pagos</h2>
+                            {/* posible filtro por año */}
+                            <table className=" table table-striped table-dark table-hover table-md table-movil">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Mes</th>
+                                        <th scope="col">Año</th>
+                                        <th scope="col">costo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr >
+                                        <td className='numero-indice-tabla'>1</td>
+                                        <td >Enero</td>
+                                        <td >2023</td>
+                                        <td >10</td>
+                                    </tr>
+                                    <tr >
+                                        <td className='numero-indice-tabla'>1</td>
+                                        <td >Enero</td>
+                                        <td >2023</td>
+                                        <td >10</td>
+                                    </tr>
+                                    <tr >
+                                        <td className='numero-indice-tabla'>1</td>
+                                        <td >Enero</td>
+                                        <td >2023</td>
+                                        <td >10</td>
+                                    </tr>
+                                    <tr >
+                                        <td className='numero-indice-tabla'>1</td>
+                                        <td >Enero</td>
+                                        <td >2023</td>
+                                        <td >10</td>
+                                    </tr>
+                                    <tr >
+                                        <td className='numero-indice-tabla'>1</td>
+                                        <td >Enero</td>
+                                        <td >2023</td>
+                                        <td >10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div className="modal-footer">
@@ -150,6 +196,7 @@ export default function suscripcion() {
                         <button id='botonEliminar' className="btn btn-warning" onClick={eliminarModalEliminar} data-id-suscripcion="">Eliminar</button>
                     </div>
                 </ModalComponent>
+                {/* posible filtro por estado del servico y estado de pago */}
                 <div className=' container-fluid'>
                     <div className=' row justify-content-center'>
                         <div className='col-12 col-sm-11 col-md-11 col-lg-10 col-xl-10'>
@@ -158,10 +205,9 @@ export default function suscripcion() {
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Fecha Inicio</th>
-                                        <th scope="col">Fecha Corte</th>
                                         <th scope="col">Estado Servicio</th>
                                         <th scope="col">Estado Pago</th>
+                                        <th scope="col"></th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
@@ -171,8 +217,6 @@ export default function suscripcion() {
                                     <tr>
                                         <td className='numero-indice-tabla'>1</td>
                                         <td>Gabriel Jesus</td>
-                                        <td>01/01/2023</td>
-                                        <td>01/02/2023</td>
                                         <td>Activo</td>
                                         <td>Pago</td>
                                         <td>
@@ -184,12 +228,14 @@ export default function suscripcion() {
                                         <td>
                                             <button className="btn btn-info" onClick={modalInfo} data-id-suscripcion="1">ver info</button>
                                         </td>
+                                        <td>
+                                            {/* mostrar solo si no ha pagado el servicio */}
+                                            {/* <button className="btn btn-danger" data-id-suscripcion="1">Pagar Servico</button> */}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td className='numero-indice-tabla'>2</td>
                                         <td>Gabriel Jesus</td>
-                                        <td>01/01/2023</td>
-                                        <td>01/02/2023</td>
                                         <td>Inactivo</td>
                                         <td>No Pago</td>
                                         <td>
@@ -201,12 +247,13 @@ export default function suscripcion() {
                                         <td>
                                             <button className="btn btn-info" onClick={modalInfo} data-id-suscripcion="2">ver info</button>
                                         </td>
+                                        <td>
+                                            <button className="btn btn-danger" data-id-suscripcion="1">Pagar Servico</button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td className='numero-indice-tabla'>3</td>
                                         <td>Gabriel Jesus</td>
-                                        <td>01/01/2023</td>
-                                        <td>01/02/2023</td>
                                         <td>Activo</td>
                                         <td>Pago</td>
                                         <td>
@@ -217,6 +264,9 @@ export default function suscripcion() {
                                         </td>
                                         <td>
                                             <button className="btn btn-info" onClick={modalInfo} data-id-suscripcion="3">ver info</button>
+                                        </td>
+                                        <td>
+                                            {/* <button className="btn btn-danger" data-id-suscripcion="1">Pagar Servico</button> */}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -237,7 +287,7 @@ export default function suscripcion() {
                                         <td data-id-suscripcion="1">Activo</td>
                                         <td data-id-suscripcion="1">Pago</td>
                                     </tr>
-                                    <tr data-id-suscripcion="2" onClick={modalInfo}>
+                                    <tr data-id-suscripcion="2" onClick={modalInfo} className='table-danger'>
                                         <td className='numero-indice-tabla' data-id-suscripcion="2">2</td>
                                         <td data-id-suscripcion="2">Gabriel Jesus</td>
                                         <td data-id-suscripcion="2">Inactivo</td>
